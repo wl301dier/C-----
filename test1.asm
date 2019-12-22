@@ -10,6 +10,8 @@
 ;
 ;end main
 
+
+;计算 2 的 12次方，并将结果保存到 ax 寄存中。
 assume cs:code        ;将code段关联到基址寄存器
 
 code segment          ;定义code段
