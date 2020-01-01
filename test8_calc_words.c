@@ -25,13 +25,23 @@ int fun(char *s){
 	return j;
 	
 }
+int fun2(char *s){
+	int words = 0;
+	for(unsigned int i=0;i<strlen(s);i++){//strlen()返回无符号整数
+		if((*(s+i) >= 'a' && *(s+i) <= 'z') &&
+			(*(s+i+1) == ' ' || *(s+i+1) =='\0')){//判定是单词：当前是小写字母 && 下一个是空格或结束符
+			words++;
+		}
+	}
+	return words;
+}
 
 int main(){
 	char line[N];
 	int num = 0;
 	printf("Enter a string:\n");
 	gets(line);
-	num=fun(line);
+	num=fun2(line);
 	printf("The num of word is : %d\n\n",num);
 	return 0;
 }
