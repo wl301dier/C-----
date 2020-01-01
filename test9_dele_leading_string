@@ -1,0 +1,38 @@
+/*将字符串的前导*全部删除，中间和尾部的*不删除。
+ *例如，字符串中的内容为：**a*bc***，删除后，字符串的内容应当为a*bc***。
+*/
+#include<stdio.h>
+#include<string.h>
+
+void fun(char s[]){
+		while(s[0] == '*'){
+			for(unsigned int j=0;j<strlen(s);j++){
+				s[j] = s[j+1];
+			}
+		}
+}
+
+void fun2(char s[]){
+	int i = 0;
+	char *p;
+
+	p = s;
+	while(*p=='*')p++;//（与while(*p != '\0')等价）让p指向s中第一个不是*的位置
+
+	while(*p){//将p指向的内容，赋给s[i]。实现前导*的覆盖，即移动
+		s[i] = *p;
+		p++;
+		i++;
+	}
+	s[i]='\0';
+		
+}
+
+int main(){
+	char line[80];
+	printf("Enter a string:\n");
+	gets(line);
+	fun2(line);
+	printf("The string is : %s\n\n",line);
+	return 0;
+}
